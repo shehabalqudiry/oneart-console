@@ -1,0 +1,47 @@
+<?php
+
+namespace {{namespace}};
+
+use {{foundation_namespace}}\Feature;
+use Illuminate\Http\Request;
+use App\Foundation\Http\Jobs\RespondWithJsonErrorJob;
+use App\Foundation\Http\Jobs\RespondWithJsonJob;
+{{use_jobs}}
+
+class {{feature}} extends Feature
+{
+
+    /**
+     * Create a new feature instance
+     */
+    public function __construct() 
+    { 
+        
+    }
+
+
+    public function handle(Request $request)
+    {
+{{run_jobs}}
+
+        if(false) {
+            return $this->run(RespondWithJsonErrorJob::class, [
+                "errors" => [
+                    'name' => 'message',
+                    "message" => 'request cannot be resolved'
+                ]
+            ]);
+        }
+        
+        return $this->run(RespondWithJsonJob::class, [
+            "content" => [
+                'model_name' => [
+                    'name' => 'Mark',
+                    'email' => 'mark@intcore.net',
+                    '' => '',
+                    //...
+                ]
+            ]
+        ]);
+    }
+}

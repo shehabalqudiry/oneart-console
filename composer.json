@@ -1,0 +1,38 @@
+{
+    "name": "markrady/oneart-console",
+    "description": "The Command Line Interface for the OneART Architecture",
+    "keywords": ["laravel", "intc", "mvc", "ddd", "domains", "architecture"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Rady",
+            "email": "mark@intcore.net"
+        },
+        {
+            "name": "intcore",
+            "email": "info@intcore.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "INTCore\\OneARTConsole\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "INTCore\\OneARTConsole\\OneARTServiceProvider"
+            ]
+        }
+    },
+    "bin": ["oneart"],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/console": "^4.0 || ^5.0 || ^5.1",
+        "symfony/process": "^5.1",
+        "symfony/finder": "^5.1",
+        "symfony/filesystem": "^5.1",
+        "illuminate/support" : "^8.0",
+        "illuminate/config" : "^8.0"
+    }
+}
